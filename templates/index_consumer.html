@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LTI consumer</title>
+</head>
+<body>
+
+    <h1>This is LTI Consumer</h1>
+    <p>Please fill required parameter below</p>
+    <!-- lti_message_type -->
+    <!-- lti_version -->
+    <!-- resource_link_id -->
+    {% for i in users %}
+        <form action="http://localhost:3000/requestLTI" method="POST">
+
+            Message type    : <input type="text" name="lti_message_type"  placeholder="{{ i.message_type }}">
+            <br>
+            Version type    : <input type="text" name="lti_version"       placeholder="{{ i.lti_version }}">
+            <br>
+            Resource ID     : <input type="text" name="resource_link_id"  placeholder="{{ i.resource_link_id }}">
+            <br>
+            <br>
+            <button>Request LTI content</button>
+
+        </form>
+        <div class = "editdeletepane">
+        </div>
+    {% endfor %}
+</body>
+</html>
